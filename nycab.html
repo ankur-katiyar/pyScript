@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#0072b5">
+    <meta name="name" content="Pyscript/Panel DeckGL Demo">
+
+    <title>Pyscript/Panel DeckGL Demo</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/@holoviz/panel@0.13.0/dist/css/widgets.css" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/@holoviz/panel@0.13.0/dist/css/markdown.css" type="text/css" />
+
+    <script type="text/javascript" src="https://unpkg.com/h3-js@3.7.2/dist/h3-js.umd.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/deck.gl@8.6.7/dist.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@deck.gl/json@8.6.7/dist.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@loaders.gl/csv@3.1.7/dist/dist.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@loaders.gl/json@3.1.7/dist/dist.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@loaders.gl/3d-tiles@3.1.7/dist/dist.min.js"></script>
+    <script type="text/javascript" src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@holoviz/panel@0.13.0/dist/panel.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@holoviz/panel@0.13.0/dist/bundled/bootstraptemplate/bootstrap.css">
+    <link rel="stylesheet" href="https://unpkg.com/@holoviz/panel@0.13.0/dist/bundled/defaulttheme/default.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        #sidebar {
+            width: 400px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+
+<body>
+    <py-env>
+        - bokeh
+        - numpy
+        - pandas
+        - panel==0.13.1a2
+    </py-env>
+
+    <div class="container-fluid d-flex flex-column vh-100 overflow-hidden" id="container">
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow" id="header"
+            style="background-color: #000000;">
+            <button type="button" class="navbar-toggle collapsed" id="sidebarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="app-header">
+                <a class="navbar-brand app-logo" href="/">
+                    <img src="./logo.png" class="app-logo">
+                </a>
+                <a class="title" href="" style="color: #f0ab3c;">Panel DeckGL NYC Taxi Demo</a>
+            </div>
+        </nav>
+
+        <div class="row overflow-hidden" id="content">
+            <div class="sidenav" id="sidebar">
+                <ul class="nav flex-column">
+                    <div class="bk-root" id="widgets"></div>
+                    <py-repl id="my-repl" auto-generate="true"> </py-repl>
+                </ul>
+            </div>
+            <div class="col mh-100 float-left" style="padding: 0;">
+                <div class="bk-root" id="plot"></div>
+            </div>
+        </div>
+    </div>
+    <py-script src="nycab.py">
+    </py-script>
+</body>
+
+</html>
