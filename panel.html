@@ -1,24 +1,28 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <title>Panel Example</title>
+    <meta charset="iso-8859-1">
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
     <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.js"></script>
     <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
     <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@holoviz/panel@0.13.0-rc.10/dist/panel.min.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
 
 <body>
     <py-env>
         - bokeh
-        - panel
+        - numpy
+        - panel==0.13.1a2
     </py-env>
-    <h1>Input TextBox Example</h1>
-    <div id="mytextbox"></div>
-    <py-script src="fib.py"></py-script>
+    <h1>Panel Example</h1>
+    <div id="myplot"></div>
+    <py-script src="panel.py">
+    </py-script>
 </body>
 
 </html>
